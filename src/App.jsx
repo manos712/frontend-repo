@@ -13,13 +13,22 @@ const App = () => {
   const [openDialog, setOpenDialog] = useState(false);
   const [editData, setEditData] = useState(null);
 
-  const fetchAccounts = async () => {
-    //const res = await axios.get('http://localhost:5000/accounts');
-    const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/accounts`);
 
-    setAccounts(res.data);
+  const fetchAccounts = async () => {
+     //const res = await axios.get('http://localhost:5000/accounts');
+    try {
+        const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/accounts`);
+        console.log(res.data);
+
+        setAccounts(res.data);
+    }
+    catch (err) {
+      console.error("Error fetching accounts:", err);
+    }
+
+
+    console.log(import.meta.env.VITE_API_BASE_URL);
   };
-console.log("API BASE URL:", import.meta.env.VITE_API_BASE_URL);
 
   useEffect(() => {
     fetchAccounts();
