@@ -13,8 +13,6 @@ const App = () => {
   const [openDialog, setOpenDialog] = useState(false);
   const [editData, setEditData] = useState(null);
 
-  const VITE_API_BASE_URL = 'https://mern3-backend-hjct.onrender.com/';
-
   const fetchAccounts = async () => {
     //const res = await axios.get('http://localhost:5000/accounts');
     const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/accounts`);
