@@ -51,7 +51,7 @@ console.log("API BASE URL:", import.meta.env.VITE_API_BASE_URL);
         await axios.put(`http://${import.meta.env.VITE_API_BASE_URL}/accounts/${data._id}`, data);
         toast.success('Updated!');
       } else {
-        await axios.post('http://${import.meta.env.VITE_API_BASE_URL}/accounts', data);
+        await axios.post(`http://${import.meta.env.VITE_API_BASE_URL}/accounts`, data);
         toast.success('Added!');
       }
       fetchAccounts();
