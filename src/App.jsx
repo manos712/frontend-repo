@@ -39,7 +39,7 @@ console.log("API BASE URL:", import.meta.env.VITE_API_BASE_URL);
 
   const handleDelete = async (id) => {
     if (window.confirm('Delete this account?')) {
-      await axios.delete(`http://localhost:5000/accounts/${id}`);
+      await axios.delete(`http://${import.meta.env.VITE_API_BASE_URL}/accounts/${id}`);
       toast.success('Deleted!');
       fetchAccounts();
     }
@@ -48,10 +48,10 @@ console.log("API BASE URL:", import.meta.env.VITE_API_BASE_URL);
   const handleSave = async (data) => {
     try {
       if (data._id) {
-        await axios.put(`http://localhost:5000/accounts/${data._id}`, data);
+        await axios.put(`http://${import.meta.env.VITE_API_BASE_URL}/accounts/${data._id}`, data);
         toast.success('Updated!');
       } else {
-        await axios.post('http://localhost:5000/accounts', data);
+        await axios.post('http://${import.meta.env.VITE_API_BASE_URL}/accounts', data);
         toast.success('Added!');
       }
       fetchAccounts();
