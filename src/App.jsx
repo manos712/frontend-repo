@@ -15,7 +15,6 @@ const App = () => {
 
 
   const fetchAccounts = async () => {
-     //const res = await axios.get('http://localhost:5000/accounts');
     try {
         const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/accounts`);
         console.log(res.data);
