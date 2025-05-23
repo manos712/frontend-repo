@@ -8,7 +8,7 @@ function AccountsList() {
   const [accounts, setAccounts] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/accounts/')
+    axios.get(`${import.meta.env.VITE_API_BASE_URL}/accounts`)
       .then(res => setAccounts(res.data))
       .catch(err => toast.error("Failed to fetch accounts"));
   }, []);
