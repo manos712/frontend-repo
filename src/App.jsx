@@ -14,7 +14,9 @@ const App = () => {
   const [editData, setEditData] = useState(null);
 
   const fetchAccounts = async () => {
-    const res = await axios.get('http://localhost:5000/accounts');
+    //const res = await axios.get('http://localhost:5000/accounts');
+    const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/accounts`);
+
     setAccounts(res.data);
   };
 
